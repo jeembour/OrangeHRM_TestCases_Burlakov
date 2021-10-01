@@ -3,6 +3,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -31,9 +32,9 @@ public class BaseCase {
         logIn();
         verifyLogIn();
         goToEmployeePage();
-        //      addNewEmployee();
+        addNewEmployee();
         verifyEmployeeExists();
-//        deleteEmployee();
+        deleteEmployee();
         verifyEmployeeExists();
 //        editEmployeeBloodType();
 //        editEmployeeMaritalStatus();
@@ -65,8 +66,11 @@ public class BaseCase {
 
     private void findEmployee() {
         goToEmployeePage();
-//        WebDriverWait wait = new WebDriverWait(driver, 20);
-//        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"search-results\"]")));
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, 2);
+            WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@class=\"ac_input inputFormatHint\"]")));
+        } catch (Exception e) {
+        }
         driver.findElement(By.xpath("//*[@id=\"empsearch_employee_name_empName\"]")).click();
         driver.findElement(By.xpath("//*[@id=\"empsearch_employee_name_empName\"]")).clear();
         driver.findElement(By.xpath("//*[@id=\"empsearch_employee_name_empName\"]")).sendKeys(TEST_FIRST_NAME + " " + TEST_LAST_NAME);
