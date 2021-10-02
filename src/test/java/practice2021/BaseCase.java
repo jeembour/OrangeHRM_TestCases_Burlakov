@@ -1,9 +1,9 @@
+package practice2021;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -24,14 +24,21 @@ public class BaseCase {
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "src/browsers/chromedriver (2).exe");
         driver = new ChromeDriver();
-    }
-
-    @Test
-    public void testName() {
         openPage();
-        logIn();
+        logIn(LOGIN_ID, LOGIN_PASSWORD);
+    }
+    private void logIn(String loginId, String loginPassword) {
+        driver.findElement(By.id("txtUsername")).click();
+        driver.findElement(By.id("txtUsername")).clear();
+        driver.findElement(By.id("txtUsername")).sendKeys(loginId);
+        driver.findElement(By.id("txtPassword")).click();
+        driver.findElement(By.id("txtPassword")).clear();
+        driver.findElement(By.id("txtPassword")).sendKeys(loginPassword);
+        driver.findElement(By.id("btnLogin")).click();
+    }
+    @Test
+    public void testMain() {
         verifyLogIn();
-        goToEmployeePage();
         addNewEmployee();
         verifyEmployeeExists();
         deleteEmployee();
@@ -67,7 +74,7 @@ public class BaseCase {
     private void findEmployee() {
         goToEmployeePage();
         try {
-            WebDriverWait wait = new WebDriverWait(driver, 2);
+            WebDriverWait wait = new WebDriverWait(driver, 1);
             WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@class=\"ac_input inputFormatHint\"]")));
         } catch (Exception e) {
         }
@@ -96,20 +103,14 @@ public class BaseCase {
     }
 
     private void verifyLogIn() {
-        WebElement element = driver.findElement(By.xpath("//*[@id=\"welcome\"]"));
-        boolean displayed = element.isDisplayed();
-        Assert.assertTrue(displayed);
-    }
-
-    private void logIn() {
-        driver.findElement(By.id("txtUsername")).click();
-        driver.findElement(By.id("txtUsername")).clear();
-        driver.findElement(By.id("txtUsername")).sendKeys(LOGIN_ID);
-        driver.findElement(By.id("txtPassword")).click();
-        driver.findElement(By.id("txtPassword")).clear();
-        driver.findElement(By.id("txtPassword")).sendKeys(LOGIN_PASSWORD);
-        driver.findElement(By.id("btnLogin")).click();
-
+        try {
+            WebElement element = driver.findElement(By.xpath("//*[@id=\"welcome\"]"));
+            boolean displayed = element.isDisplayed();
+            Assert.assertTrue(displayed);
+        } catch (Exception e) {
+            System.out.println("Successful login not verified!");
+            throw (e);
+        }
     }
 
     public void openPage() {
