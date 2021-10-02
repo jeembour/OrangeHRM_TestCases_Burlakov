@@ -24,20 +24,12 @@ public class BaseCase {
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "src/browsers/chromedriver (2).exe");
         driver = new ChromeDriver();
-        openPage();
-        logIn(LOGIN_ID, LOGIN_PASSWORD);
     }
-    private void logIn(String loginId, String loginPassword) {
-        driver.findElement(By.id("txtUsername")).click();
-        driver.findElement(By.id("txtUsername")).clear();
-        driver.findElement(By.id("txtUsername")).sendKeys(loginId);
-        driver.findElement(By.id("txtPassword")).click();
-        driver.findElement(By.id("txtPassword")).clear();
-        driver.findElement(By.id("txtPassword")).sendKeys(loginPassword);
-        driver.findElement(By.id("btnLogin")).click();
-    }
+
     @Test
     public void testMain() {
+        openPage();
+        logIn(LOGIN_ID, LOGIN_PASSWORD);
         verifyLogIn();
         addNewEmployee();
         verifyEmployeeExists();
@@ -51,6 +43,16 @@ public class BaseCase {
 //        editEmployeeJoinedDate();
 
 //        logOut();
+    }
+
+    private void logIn(String loginId, String loginPassword) {
+        driver.findElement(By.id("txtUsername")).click();
+        driver.findElement(By.id("txtUsername")).clear();
+        driver.findElement(By.id("txtUsername")).sendKeys(loginId);
+        driver.findElement(By.id("txtPassword")).click();
+        driver.findElement(By.id("txtPassword")).clear();
+        driver.findElement(By.id("txtPassword")).sendKeys(loginPassword);
+        driver.findElement(By.id("btnLogin")).click();
     }
 
     private void verifyEmployeeExists() {
@@ -114,7 +116,12 @@ public class BaseCase {
     }
 
     public void openPage() {
-        driver.get(TEST_SOURCE_PAGE);
+        try {
+            driver.get(TEST_SOURCE_PAGE);
+        } catch (Exception e) {
+            System.out.println("Source page not found!");
+            throw (e);
+        }
     }
 
     @AfterSuite
