@@ -12,13 +12,13 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 public class BaseCase {
-    public static final String TEST_FIRST_NAME = "testFistName";
-    public static final String TEST_LAST_NAME = "testLastName";
-    public static final String TEST_SOURCE_PAGE = "https://opensource-demo.orangehrmlive.com/";
-    public static final String LOGIN_ID = "Admin";
-    public static final String LOGIN_PASSWORD = "admin123";
-    public static final String TEST_SOURCE_PAGE_EMPLOYEE = "https://opensource-demo.orangehrmlive.com/index.php/pim/viewEmployeeList";
+    public static final String MAIN_PAGE = "https://opensource-demo.orangehrmlive.com/";
+    public static final String EMPLOYEE_LIST_PAGE = "https://opensource-demo.orangehrmlive.com/index.php/pim/viewEmployeeList";
     public static final String GREENTEXTCOLOR = (char) 27 + "[92m";
+    public static String loginId = "Admin";
+    public static String loginPWD = "admin123";
+    public static String testFirstName = "testFistName";
+    public static String testLastName = "testLastName";
     WebDriver driver;
 
     @BeforeSuite
@@ -30,12 +30,12 @@ public class BaseCase {
     @Test
     public void testMain() {
         openPage();
-        logIn(LOGIN_ID, LOGIN_PASSWORD);
+        logIn(loginId, loginPWD);
         verifyLogIn();
-        addNewEmployee();
-        verifyEmployeeExists();
-        deleteEmployee();
-        verifyEmployeeExists();
+        addNewEmployee(testFirstName, testLastName);
+        verifyEmployeeExists(testFirstName, testLastName);
+        deleteEmployee(testFirstName, testLastName);
+        verifyEmployeeExists(testFirstName, testLastName);
 //        editEmployeeBloodType();
 //        editEmployeeMaritalStatus();
 //        editEmployeeNationality();
@@ -61,36 +61,36 @@ public class BaseCase {
         }
     }
 
-    private void verifyEmployeeExists() {
-        findEmployee();
+    private void verifyEmployeeExists(String testFirstName, String testLastName) {
+        findEmployee(testFirstName, testLastName);
         try {
             driver.findElement(By.xpath("//td[text()=\"No Records Found\"]"));
-            System.out.println(TEST_FIRST_NAME + " " + TEST_LAST_NAME + " is not found in the Employee list.");
+            System.out.println(testFirstName + " " + testLastName + " is not found in the Employee list.");
         } catch (Exception e) {
-            System.out.println(TEST_FIRST_NAME + " " + TEST_LAST_NAME + " is found in the Employee list.");
+            System.out.println(testFirstName + " " + testLastName + " is found in the Employee list.");
         }
     }
 
-    private void deleteEmployee() {
-        findEmployee();
+    private void deleteEmployee(String testFirstName, String testLastName) {
+        findEmployee(testFirstName, testLastName);
         try {
-            driver.findElement(By.xpath("//a[text()=\"" + TEST_FIRST_NAME + "\"]/../../child::td/input")).click();
+            driver.findElement(By.xpath("//a[text()=\"" + testFirstName + "\"]/../../child::td/input")).click();
             driver.findElement(By.id("btnDelete")).click();
             driver.findElement(By.id("dialogDeleteBtn")).click();
-            System.out.println(TEST_FIRST_NAME + " " + TEST_LAST_NAME + " successfully deleted from the employee list.");
+            System.out.println(testFirstName + " " + testLastName + " successfully deleted from the employee list.");
         } catch (Exception e) {
-            System.out.println(GREENTEXTCOLOR + "Failed to delete " + TEST_FIRST_NAME + " " + TEST_LAST_NAME + " from the employee list.");
+            System.out.println(GREENTEXTCOLOR + "Failed to delete " + testFirstName + " " + testLastName + " from the employee list.");
             throw (e);
         }
     }
 
-    private void findEmployee() {
+    private void findEmployee(String testFirstName, String testLastName) {
         goToEmployeePage();
         waitForEmployeePageJSExecution();
         try {
             driver.findElement(By.xpath("//*[@id=\"empsearch_employee_name_empName\"]")).click();
             driver.findElement(By.xpath("//*[@id=\"empsearch_employee_name_empName\"]")).clear();
-            driver.findElement(By.xpath("//*[@id=\"empsearch_employee_name_empName\"]")).sendKeys(TEST_FIRST_NAME + " " + TEST_LAST_NAME);
+            driver.findElement(By.xpath("//*[@id=\"empsearch_employee_name_empName\"]")).sendKeys(testFirstName + " " + testLastName);
             driver.findElement(By.id("searchBtn")).click();
         } catch (Exception e) {
             System.out.println(GREENTEXTCOLOR + "Failed to locate elements on the Employee page");
@@ -106,19 +106,19 @@ public class BaseCase {
         }
     }
 
-    private void addNewEmployee() {
+    private void addNewEmployee(String testFirstName, String testLastName) {
         goToEmployeePage();
         waitForEmployeePageJSExecution();
         try {
             driver.findElement(By.id("btnAdd")).click();
             driver.findElement(By.id("firstName")).click();
             driver.findElement(By.id("firstName")).clear();
-            driver.findElement(By.id("firstName")).sendKeys(TEST_FIRST_NAME);
+            driver.findElement(By.id("firstName")).sendKeys(testFirstName);
             driver.findElement(By.id("lastName")).click();
             driver.findElement(By.id("lastName")).clear();
-            driver.findElement(By.id("lastName")).sendKeys(TEST_LAST_NAME);
+            driver.findElement(By.id("lastName")).sendKeys(testLastName);
             driver.findElement(By.id("btnSave")).click();
-            System.out.println("Employee " + TEST_FIRST_NAME + " " + TEST_LAST_NAME + " added to the Employee list.");
+            System.out.println("Employee " + testFirstName + " " + testLastName + " added to the Employee list.");
         } catch (Exception e) {
             System.out.println(GREENTEXTCOLOR + "Failed to add a new employee to the Employee list.");
             throw (e);
@@ -127,7 +127,7 @@ public class BaseCase {
 
     private void goToEmployeePage() {
         try {
-            driver.get(TEST_SOURCE_PAGE_EMPLOYEE);
+            driver.get(EMPLOYEE_LIST_PAGE);
             driver.findElement(By.id("searchBtn"));
         } catch (Exception e) {
             System.out.println(GREENTEXTCOLOR + "The Employee list page is not found.");
@@ -149,7 +149,7 @@ public class BaseCase {
 
     public void openPage() {
         try {
-            driver.get(TEST_SOURCE_PAGE);
+            driver.get(MAIN_PAGE);
             System.out.println("The main page seems to open.");
         } catch (Exception e) {
             System.out.println(GREENTEXTCOLOR + "The main page is not found.");
