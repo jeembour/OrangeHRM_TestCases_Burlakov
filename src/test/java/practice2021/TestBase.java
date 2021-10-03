@@ -8,11 +8,12 @@ import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
-import java.io.File;
-import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
+import java.util.Random;
 
 public class TestBase {
     public static final String MAIN_PAGE = "https://opensource-demo.orangehrmlive.com/";
@@ -27,16 +28,22 @@ public class TestBase {
     public static String maritalStatus;
     public static String doB;
     public static String bloodType;
-
     public static String dataFile = "D:\\Data.txt";
-    public static String inpData;
+    public static List<String> inpData;
     WebDriver driver;
 
     @BeforeSuite
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "src/browsers/chromedriver (2).exe");
         driver = new ChromeDriver();
+        getEmployeeNumber();
         getInputData();
+    }
+
+    private static int getEmployeeNumber() {
+        Random rand = new Random();
+        int empNumber = rand.nextInt((20) + 1);
+        return empNumber;
     }
 
     public void sendKeysToField(String textToSend, String elementPathById) {
@@ -81,26 +88,18 @@ public class TestBase {
     }
 
     public void getInputData() {
-        try {
-            File newObj = new File(dataFile);
-            Scanner inputData = new Scanner(newObj);
-            while (inputData.hasNextLine()) {
-                inpData = inputData.nextLine();
-                System.out.println(inpData);
-            }
-        } catch (Exception e) {
-            System.out.println(GREEN_TEXT_COLOR + "Read file error");
-            e.printStackTrace();
+        int n = getEmployeeNumber();
+        String line;
+        try (BufferedReader br = new BufferedReader(new FileReader(dataFile))) {
+            for (int i = 0; i < n; i++)
+                br.readLine();
+            line = br.readLine();
+            inpData = Arrays.asList(line.split("\\s*,\\s*"));
+            testFirstName = inpData.get(0);
+            testLastName = inpData.get(1);
+        } catch (IOException e) {
+            System.out.println(e);
         }
-        List<String> items = Arrays.asList(inpData.split("\\s*,\\s*"));
-        System.out.println(items);
-        testFirstName = items.get(2);
-        testLastName = items.get(3);
-//        gender;
-//         nationality;
-//        maritalStatus;
-//        doB;
-//        bloodType;
     }
 
 
