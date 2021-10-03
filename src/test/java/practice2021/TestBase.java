@@ -28,7 +28,7 @@ public class TestBase {
     public static String maritalStatus;
     public static String doB;
     public static String bloodType;
-    public static String dataFile = "D:\\Data.txt";
+    public static String dataFile = "src/data/Data";
     public static List<String> inpData;
     WebDriver driver;
 
