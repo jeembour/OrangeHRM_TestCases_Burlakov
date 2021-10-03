@@ -36,13 +36,13 @@ public class TestBase {
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "src/browsers/chromedriver (2).exe");
         driver = new ChromeDriver();
-        getEmployeeNumber();
         getInputData();
+        driver.manage().window().maximize();
     }
 
     private static int getEmployeeNumber() {
         Random rand = new Random();
-        int empNumber = rand.nextInt((19) + 1);
+        int empNumber = rand.nextInt((20) + 1);
         System.out.println("Employee number "+ empNumber + " selected.");
         return empNumber;
     }
@@ -68,17 +68,17 @@ public class TestBase {
         }
     }
 
-    protected void verifyCurrentURL(String xPathToVerifyPageOpened, String pageUnderTest) {
-        try {
-            WebElement element = driver.findElement(By.xpath(xPathToVerifyPageOpened));
-            boolean displayed = element.isDisplayed();
-            Assert.assertTrue(displayed);
-            System.out.println(pageUnderTest + " opened successfully.");
-        } catch (Exception e) {
-            System.out.println(GREEN_TEXT_COLOR + "Failed to open " + pageUnderTest);
-            throw (e);
-        }
-    }
+//    protected void verifyCurrentURL(String xPathToVerifyPageOpened, String pageUnderTest) {
+//        try {
+//            WebElement element = driver.findElement(By.xpath(xPathToVerifyPageOpened));
+//            boolean displayed = element.isDisplayed();
+//            Assert.assertTrue(displayed);
+//            System.out.println(pageUnderTest + " opened successfully.");
+//        } catch (Exception e) {
+//            System.out.println(GREEN_TEXT_COLOR + "Failed to open " + pageUnderTest);
+//            throw (e);
+//        }
+//    }
 
     public void openPage(String pageToOpen, String pageName, String xPathOfPageUnderTest) {
         try {

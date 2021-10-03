@@ -15,8 +15,8 @@ public class EmployeeListPage extends TestBase {
         String pageUnderTest = "Employee list page";
         openPage(MAIN_PAGE, MAIN_PAGE_TEXT, xPathOfMainPage);
         logIn(loginId, loginPWD);
-        goToEmployeePage();
-        verifyCurrentURL(xPathOfPageUnderTest, pageUnderTest);
+        openPage(EMPLOYEE_LIST_PAGE, pageUnderTest, xPathOfPageUnderTest);
+      //  verifyCurrentURL(xPathOfPageUnderTest, pageUnderTest);
         addNewEmployee(testFirstName, testLastName);
         verifyEmployeeExists(testFirstName, testLastName);
         deleteEmployee(testFirstName, testLastName);
