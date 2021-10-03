@@ -15,6 +15,7 @@ public class CandidatePage extends TestBase {
 
     private void openCandidatePage() {
         driver.get("https://opensource-demo.orangehrmlive.com/index.php/recruitment/viewCandidates");
+        int dsada = 23213;
     }
 
 }

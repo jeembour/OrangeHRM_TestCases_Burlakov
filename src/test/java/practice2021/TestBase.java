@@ -7,7 +7,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -17,6 +16,7 @@ import java.util.Random;
 
 public class TestBase {
     public static final String MAIN_PAGE = "https://opensource-demo.orangehrmlive.com/";
+    public static final String MAIN_PAGE_TEXT = "Main page";
     public static final String GREEN_TEXT_COLOR = (char) 27 + "[92m";
     public static final String EMPLOYEE_LIST_PAGE = "https://opensource-demo.orangehrmlive.com/index.php/pim/viewEmployeeList";
     public static String loginId = "Admin";
@@ -42,7 +42,8 @@ public class TestBase {
 
     private static int getEmployeeNumber() {
         Random rand = new Random();
-        int empNumber = rand.nextInt((20) + 1);
+        int empNumber = rand.nextInt((19) + 1);
+        System.out.println("Employee number "+ empNumber + " selected.");
         return empNumber;
     }
 
@@ -56,33 +57,36 @@ public class TestBase {
         try {
             String usernameLocator = "txtUsername";
             String pwdLocator = "txtPassword";
+            String xPathOfPage = "//*[@id=\"welcome\"]";
             sendKeysToField(loginId, usernameLocator);
             sendKeysToField(loginPassword, pwdLocator);
             driver.findElement(By.id("btnLogin")).click();
+            driver.findElement(By.xpath(xPathOfPage));
         } catch (Exception e) {
             System.out.println(GREEN_TEXT_COLOR + "Logging in failed - cannot locate element on login page.");
             throw (e);
         }
     }
 
-    protected void verifyLogIn() {
+    protected void verifyCurrentURL(String xPathToVerifyPageOpened, String pageUnderTest) {
         try {
-            WebElement element = driver.findElement(By.xpath("//*[@id=\"welcome\"]"));
+            WebElement element = driver.findElement(By.xpath(xPathToVerifyPageOpened));
             boolean displayed = element.isDisplayed();
             Assert.assertTrue(displayed);
-            System.out.println("Logged in successfully.");
+            System.out.println(pageUnderTest + " opened successfully.");
         } catch (Exception e) {
-            System.out.println(GREEN_TEXT_COLOR + "Failed to log in.");
+            System.out.println(GREEN_TEXT_COLOR + "Failed to open " + pageUnderTest);
             throw (e);
         }
     }
 
-    public void openPage() {
+    public void openPage(String pageToOpen, String pageName, String xPathOfPageUnderTest) {
         try {
-            driver.get(MAIN_PAGE);
-            System.out.println("The main page seems to open.");
+            driver.get(pageToOpen);
+            driver.findElement(By.xpath(xPathOfPageUnderTest));
+            System.out.println(pageName + " opened.");
         } catch (Exception e) {
-            System.out.println(GREEN_TEXT_COLOR + "The main page is not found.");
+            System.out.println(GREEN_TEXT_COLOR + pageName + " is not found.");
             throw (e);
         }
     }

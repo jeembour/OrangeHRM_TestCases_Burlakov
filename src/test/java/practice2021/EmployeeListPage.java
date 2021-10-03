@@ -10,9 +10,13 @@ public class EmployeeListPage extends TestBase {
 
     @Test
     public void testMain() {
-        openPage();
+        String xPathOfPageUnderTest = "//form[@id=\"search_form\" and @name=\"frmEmployeeSearch\"]";
+        String xPathOfMainPage = "//*[@id=\"logInPanelHeading\"]";
+        String pageUnderTest = "Employee list page";
+        openPage(MAIN_PAGE, MAIN_PAGE_TEXT, xPathOfMainPage);
         logIn(loginId, loginPWD);
-        verifyLogIn();
+        goToEmployeePage();
+        verifyCurrentURL(xPathOfPageUnderTest, pageUnderTest);
         addNewEmployee(testFirstName, testLastName);
         verifyEmployeeExists(testFirstName, testLastName);
         deleteEmployee(testFirstName, testLastName);
