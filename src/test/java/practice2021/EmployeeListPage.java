@@ -7,11 +7,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 public class EmployeeListPage extends TestBase {
-    public static final String EMPLOYEE_LIST_PAGE = "https://opensource-demo.orangehrmlive.com/index.php/pim/viewEmployeeList";
-    public static String loginId = "Admin";
-    public static String loginPWD = "admin123";
-    public static String testFirstName = "testFistName";
-    public static String testLastName = "testLastName";
 
     @Test
     public void testMain() {
@@ -22,12 +17,15 @@ public class EmployeeListPage extends TestBase {
         verifyEmployeeExists(testFirstName, testLastName);
         deleteEmployee(testFirstName, testLastName);
         verifyEmployeeExists(testFirstName, testLastName);
+
+
 //        editEmployeeBloodType();
 //        editEmployeeMaritalStatus();
 //        editEmployeeNationality();
-//        editEmployeeJobTitle();
-//        editEmployeeEmpStatus();
-//        editEmployeeJoinedDate();
+//        editEmployeeGender();
+//        editEmployeeDoB();
+//        editEmployeePhoto();
+//
 //        logOut();
     }
 
