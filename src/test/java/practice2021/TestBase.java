@@ -29,10 +29,9 @@ public class TestBase {
     public static String empDoB;
     public static String empBloodType;
     public static String dataFile = "src/data/Data";
-    public static List<String> inpData;
     WebDriver driver;
 
-    @BeforeSuite
+    @BeforeSuite(alwaysRun = true)
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "src/browsers/chromedriver (2).exe");
         driver = new ChromeDriver();
@@ -43,7 +42,7 @@ public class TestBase {
     private static int getEmployeeNumber() {
         Random rand = new Random();
         int empNumber = rand.nextInt((20) + 1);
-        System.out.println("Employee number "+ empNumber + " selected.");
+        System.out.println("Employee number " + empNumber + " selected.");
         return empNumber;
     }
 
@@ -63,7 +62,7 @@ public class TestBase {
             driver.findElement(By.id("btnLogin")).click();
             driver.findElement(By.xpath(xPathOfPage));
         } catch (Exception e) {
-            System.out.println(GREEN_TEXT_COLOR + "Logging in failed - cannot locate element on login page.");
+            System.out.println(GREEN_TEXT_COLOR + "Logging in failed.");
             throw (e);
         }
     }
@@ -95,10 +94,9 @@ public class TestBase {
         int n = getEmployeeNumber();
         String line;
         try (BufferedReader br = new BufferedReader(new FileReader(dataFile))) {
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i <= n; i++)
                 br.readLine();
-            line = br.readLine();
-            inpData = Arrays.asList(line.split("\\s*,\\s*"));
+            List<String> inpData = Arrays.asList(br.readLine().split("\\s*,\\s*"));
             empId = inpData.get(0);
             empFirstName = inpData.get(1);
             empLastName = inpData.get(2);

@@ -17,10 +17,10 @@ public class EmployeeListPage extends TestBase {
         logIn(loginId, loginPWD);
         openPage(EMPLOYEE_LIST_PAGE, pageUnderTest, xPathOfPageUnderTest);
       //  verifyCurrentURL(xPathOfPageUnderTest, pageUnderTest);
-        addNewEmployee(empFirstName, empLastName);
-        verifyEmployeeExists(empFirstName, empLastName);
-        deleteEmployee(empFirstName, empLastName);
-        verifyEmployeeExists(empFirstName, empLastName);
+        addNewEmployee(empId, empFirstName, empLastName);
+        verifyEmployeeExists(empId);
+        deleteEmployee(empId);
+        verifyEmployeeExists(empId);
 
 
 //        editEmployeeBloodType();
@@ -33,37 +33,36 @@ public class EmployeeListPage extends TestBase {
 //        logOut();
     }
 
-    private void verifyEmployeeExists(String testFirstName, String testLastName) {
-        findEmployee(testFirstName, testLastName);
+    private void verifyEmployeeExists(String empId) {
+        findEmployee(empId);
         try {
             String elementPath = "//td[text()=\"No Records Found\"]";
             driver.findElement(By.xpath(elementPath));
-            System.out.println(testFirstName + " " + testLastName + " is not found in the Employee list.");
+            System.out.println(empFirstName + " " + empLastName + " is not found in the Employee list.");
         } catch (Exception e) {
-            System.out.println(testFirstName + " " + testLastName + " is found in the Employee list.");
+            System.out.println(empFirstName + " " + empLastName + " is found in the Employee list.");
         }
     }
 
-    private void deleteEmployee(String testFirstName, String testLastName) {
-        findEmployee(testFirstName, testLastName);
+    private void deleteEmployee(String empId) {
+        findEmployee(empId);
         try {
-            driver.findElement(By.xpath("//a[text()=\"" + testFirstName + "\"]/../../child::td/input")).click();    // path to checkbox
+            driver.findElement(By.xpath("//a[text()=\"" + empId + "\"]/../../child::td/input")).click();    // path to checkbox
             driver.findElement(By.id("btnDelete")).click();
             driver.findElement(By.id("dialogDeleteBtn")).click();
-            System.out.println(testFirstName + " " + testLastName + " successfully deleted from the employee list.");
+            System.out.println(empFirstName + " " + empLastName + " successfully deleted from the employee list.");
         } catch (Exception e) {
-            System.out.println(GREEN_TEXT_COLOR + "Failed to delete " + testFirstName + " " + testLastName + " from the employee list.");
+            System.out.println(GREEN_TEXT_COLOR + "Failed to delete " + empFirstName + " " + empLastName + " from the employee list.");
             throw (e);
         }
     }
 
-    private void findEmployee(String testFirstName, String testLastName) {
+    private void findEmployee(String empId) {
         goToEmployeePage();
         waitForEmployeePageJSExecution();
         try {
-            String elementPathById = "empsearch_employee_name_empName";       //path to employee name input field
-            String str = testFirstName + " " + testLastName;
-            sendKeysToField(str, elementPathById);
+            String elementPathById = "empsearch_id";       //path to employee name input field
+            sendKeysToField(empId, elementPathById);
             driver.findElement(By.id("searchBtn")).click();
         } catch (Exception e) {
             System.out.println(GREEN_TEXT_COLOR + "Failed to locate elements on the Employee page");
@@ -79,15 +78,16 @@ public class EmployeeListPage extends TestBase {
         }
     }
 
-    private void addNewEmployee(String testFirstName, String testLastName) {
+    private void addNewEmployee(String empId, String firstName, String lastname) {
         goToEmployeePage();
         waitForEmployeePageJSExecution();
         try {
             driver.findElement(By.id("btnAdd")).click();
-            sendKeysToField(testFirstName, "firstName");
-            sendKeysToField(testLastName, "lastName");
+            sendKeysToField(firstName, "firstName");
+            sendKeysToField(lastname, "lastName");
+            sendKeysToField(empId, "employeeId");
             driver.findElement(By.id("btnSave")).click();
-            System.out.println("Employee " + testFirstName + " " + testLastName + " added to the Employee list.");
+            System.out.println("Employee " + firstName + " " + lastname + " added to the Employee list.");
         } catch (Exception e) {
             System.out.println(GREEN_TEXT_COLOR + "Failed to add a new employee to the Employee list.");
             throw (e);
