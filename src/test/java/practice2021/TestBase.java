@@ -17,6 +17,7 @@ public class TestBase {
     public static final String MAIN_PAGE_TEXT = "Main page";
     public static final String GREEN_TEXT_COLOR = (char) 27 + "[92m";
     public static final String EMPLOYEE_LIST_PAGE = "https://opensource-demo.orangehrmlive.com/index.php/pim/viewEmployeeList";
+    public static final String CANDIDATE_PAGE = "https://opensource-demo.orangehrmlive.com/index.php/recruitment/viewCandidates";
     public static String loginId = "Admin";
     public static String loginPWD = "admin123";
     public static String empFirstName;

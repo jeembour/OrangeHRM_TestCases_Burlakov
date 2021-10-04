@@ -3,7 +3,6 @@ package practice2021;
 import org.testng.annotations.Test;
 
 public class CandidatePage extends TestBase {
-
     @Test
     public void candidatePageTests (){
         openCandidatePage();
@@ -14,7 +13,7 @@ public class CandidatePage extends TestBase {
     }
 
     private void openCandidatePage() {
-        driver.get("https://opensource-demo.orangehrmlive.com/index.php/recruitment/viewCandidates");
+        driver.get(CANDIDATE_PAGE);
         int dsada = 23213;
     }
 
