@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite1" verbose="1" >
+    <test name="EmployeePageActions" >
+        <classes>
+            <class name="practice2021.EmployeeListPage">
+                    <methods>
+                            <include name="testMain"/>
+                    </methods>
+            </class>>
+        </classes>
+    </test>
+</suite>
