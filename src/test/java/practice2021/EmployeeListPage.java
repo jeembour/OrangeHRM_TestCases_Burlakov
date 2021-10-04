@@ -17,10 +17,10 @@ public class EmployeeListPage extends TestBase {
         logIn(loginId, loginPWD);
         openPage(EMPLOYEE_LIST_PAGE, pageUnderTest, xPathOfPageUnderTest);
       //  verifyCurrentURL(xPathOfPageUnderTest, pageUnderTest);
-        addNewEmployee(testFirstName, testLastName);
-        verifyEmployeeExists(testFirstName, testLastName);
-        deleteEmployee(testFirstName, testLastName);
-        verifyEmployeeExists(testFirstName, testLastName);
+        addNewEmployee(empFirstName, empLastName);
+        verifyEmployeeExists(empFirstName, empLastName);
+        deleteEmployee(empFirstName, empLastName);
+        verifyEmployeeExists(empFirstName, empLastName);
 
 
 //        editEmployeeBloodType();

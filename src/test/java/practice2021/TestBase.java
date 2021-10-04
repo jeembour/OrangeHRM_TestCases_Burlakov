@@ -2,9 +2,7 @@ package practice2021;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import java.io.BufferedReader;
@@ -21,13 +19,14 @@ public class TestBase {
     public static final String EMPLOYEE_LIST_PAGE = "https://opensource-demo.orangehrmlive.com/index.php/pim/viewEmployeeList";
     public static String loginId = "Admin";
     public static String loginPWD = "admin123";
-    public static String testFirstName;
-    public static String testLastName;
-    public static String gender;
-    public static String nationality;
-    public static String maritalStatus;
-    public static String doB;
-    public static String bloodType;
+    public static String empFirstName;
+    public static String empLastName;
+    public static String empGender;
+    public static String empId;
+    public static String empNationality;
+    public static String empMaritalStatus;
+    public static String empDoB;
+    public static String empBloodType;
     public static String dataFile = "src/data/Data";
     public static List<String> inpData;
     WebDriver driver;
@@ -99,13 +98,18 @@ public class TestBase {
                 br.readLine();
             line = br.readLine();
             inpData = Arrays.asList(line.split("\\s*,\\s*"));
-            testFirstName = inpData.get(0);
-            testLastName = inpData.get(1);
+            empId = inpData.get(0);
+            empFirstName = inpData.get(1);
+            empLastName = inpData.get(2);
+            empGender = inpData.get(3);
+            empNationality = inpData.get(4);
+            empMaritalStatus = inpData.get(5);
+            empDoB = inpData.get(6);
+            empBloodType = inpData.get(7);
         } catch (IOException e) {
             System.out.println(e);
         }
     }
-
 
     @AfterSuite
     public void tearDown() {
