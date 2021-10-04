@@ -41,7 +41,7 @@ public class TestBase {
 
     private static int getEmployeeNumber() {
         Random rand = new Random();
-        int empNumber = rand.nextInt((20) + 1);
+        int empNumber = rand.nextInt(20)+1;
         System.out.println("Employee number " + empNumber + " selected.");
         return empNumber;
     }
@@ -94,7 +94,7 @@ public class TestBase {
         int n = getEmployeeNumber();
         String line;
         try (BufferedReader br = new BufferedReader(new FileReader(dataFile))) {
-            for (int i = 0; i <= n; i++)
+            for (int i = 0; i < n; i++)
                 br.readLine();
             List<String> inpData = Arrays.asList(br.readLine().split("\\s*,\\s*"));
             empId = inpData.get(0);
