@@ -5,6 +5,7 @@
         <classes>
             <class name="practice2021.Login"/>
             <class name="practice2021.AddEmployee"/>
+            <class name="practice2021.FindEmployee"/>
             <class name="practice2021.DeleteEmployee"/>
         </classes>
     </test>

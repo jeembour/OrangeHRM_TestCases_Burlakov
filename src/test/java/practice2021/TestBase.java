@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -18,9 +19,7 @@ public class TestBase {
     public static final String GREEN_TEXT_COLOR = (char) 27 + "[92m";
     public static final String EMPLOYEE_LIST_PAGE = "https://opensource-demo.orangehrmlive.com/index.php/pim/viewEmployeeList";
     public static final String CANDIDATE_PAGE = "https://opensource-demo.orangehrmlive.com/index.php/recruitment/viewCandidates";
-    public static final String xPathOfPageUnderTest = "//form[@id=\"search_form\" and @name=\"frmEmployeeSearch\"]";
     public static final String xPathOfMainPage = "//*[@id=\"logInPanelHeading\"]";
-    public static final String pageUnderTest = "Employee list page";
     public static String loginId = "Admin";
     public static String loginPWD = "admin123";
     public static String empFirstName;
@@ -44,30 +43,16 @@ public class TestBase {
 
     private static int getEmployeeNumber() {
         Random rand = new Random();
-        int empNumber = rand.nextInt(20)+1;
+        int empNumber = rand.nextInt(20) + 1;
         System.out.println("Employee number " + empNumber + " selected.");
         return empNumber;
     }
 
-    public void sendKeysToField(String textToSend, String elementPathById) {
+    public static void sendKeysToField(String textToSend, String elementPathById) {
         driver.findElement(By.id(elementPathById)).click();
         driver.findElement(By.id(elementPathById)).clear();
         driver.findElement(By.id(elementPathById)).sendKeys(textToSend);
     }
-
-
-
-//    protected void verifyCurrentURL(String xPathToVerifyPageOpened, String pageUnderTest) {
-//        try {
-//            WebElement element = driver.findElement(By.xpath(xPathToVerifyPageOpened));
-//            boolean displayed = element.isDisplayed();
-//            Assert.assertTrue(displayed);
-//            System.out.println(pageUnderTest + " opened successfully.");
-//        } catch (Exception e) {
-//            System.out.println(GREEN_TEXT_COLOR + "Failed to open " + pageUnderTest);
-//            throw (e);
-//        }
-//    }
 
     public void openPage(String pageToOpen, String pageName, String xPathOfPageUnderTest) {
         try {
@@ -100,8 +85,8 @@ public class TestBase {
         }
     }
 
-    @AfterSuite (alwaysRun = true)
-    public void tearDown()throws Exception {
+    @AfterSuite(alwaysRun = true)
+    public void tearDown() throws Exception {
         driver.quit();
     }
 }

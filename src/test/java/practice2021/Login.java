@@ -3,7 +3,7 @@ package practice2021;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
-public class Login extends TestBase{
+public class Login extends TestBase {
 
     @Test
     public void logIn() {

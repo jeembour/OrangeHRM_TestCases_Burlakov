@@ -3,10 +3,10 @@ package practice2021;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
-public class DeleteEmployee extends EmployeeListPage{
+public class DeleteEmployee extends EmployeeListPage {
     @Test
-    public void deleteEmployee( ) {
-        findEmployee();
+    public void deleteEmployee() {
+        FindEmployee.findEmployee();
         try {
             driver.findElement(By.xpath("//a[text()=\"" + empId + "\"]/../../child::td/input")).click();    // path to checkbox
             driver.findElement(By.id("btnDelete")).click();

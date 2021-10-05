@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 public class CandidatePage extends TestBase {
     @Test
-    public void candidatePageTests (){
+    public void candidatePageTests() {
         openCandidatePage();
         getInputData();
 //        addCandidate();
