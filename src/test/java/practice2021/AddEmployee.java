@@ -3,7 +3,7 @@ package practice2021;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
-public class AddEmployee extends EmployeeListPage {
+public class AddEmployee extends EmployeeListPageManager {
 
     @Test
     public void addNewEmployee() {

@@ -3,7 +3,7 @@ package practice2021;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
-public class DeleteEmployee extends EmployeeListPage {
+public class DeleteEmployee extends EmployeeListPageManager {
     @Test
     public void deleteEmployee() {
         FindEmployee.findEmployee();

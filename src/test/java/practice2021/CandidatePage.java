@@ -14,7 +14,6 @@ public class CandidatePage extends TestBase {
 
     private void openCandidatePage() {
         driver.get(CANDIDATE_PAGE);
-        int dsada = 23213;
     }
 
 }
