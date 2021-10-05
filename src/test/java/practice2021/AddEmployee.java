@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 public class AddEmployee extends EmployeeListPageManager {
 
-    @Test
+    @Test (groups = {"checkintest", "funktest"})
     public void addNewEmployee() {
         goToEmployeePage();
         waitForEmployeePageJSExecution();

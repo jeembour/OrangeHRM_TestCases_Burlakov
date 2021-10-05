@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 public class Login extends TestBase {
 
-    @Test
+    @Test (groups = {"checkintest"})
     public void logIn() {
         try {
             openPage(MAIN_PAGE, MAIN_PAGE_TEXT, xPathOfMainPage);

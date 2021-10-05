@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 public class FindEmployee extends EmployeeListPageManager {
-    @Test
+    @Test (groups = {"checkintest", "funktest"})
     public static void findEmployee() {
         goToEmployeePage();
         waitForEmployeePageJSExecution();

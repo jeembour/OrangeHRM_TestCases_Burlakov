@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 public class DeleteEmployee extends EmployeeListPageManager {
-    @Test
+    @Test  (groups = {"checkintest", "funktest"})
     public void deleteEmployee() {
         FindEmployee.findEmployee();
         try {
