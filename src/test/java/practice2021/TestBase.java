@@ -18,6 +18,9 @@ public class TestBase {
     public static final String GREEN_TEXT_COLOR = (char) 27 + "[92m";
     public static final String EMPLOYEE_LIST_PAGE = "https://opensource-demo.orangehrmlive.com/index.php/pim/viewEmployeeList";
     public static final String CANDIDATE_PAGE = "https://opensource-demo.orangehrmlive.com/index.php/recruitment/viewCandidates";
+    public static final String xPathOfPageUnderTest = "//form[@id=\"search_form\" and @name=\"frmEmployeeSearch\"]";
+    public static final String xPathOfMainPage = "//*[@id=\"logInPanelHeading\"]";
+    public static final String pageUnderTest = "Employee list page";
     public static String loginId = "Admin";
     public static String loginPWD = "admin123";
     public static String empFirstName;
@@ -29,10 +32,10 @@ public class TestBase {
     public static String empDoB;
     public static String empBloodType;
     public static String dataFile = "src/data/Data";
-    WebDriver driver;
+    public static WebDriver driver;
 
     @BeforeSuite(alwaysRun = true)
-    public void setUp() {
+    public void setUp() throws Exception {
         System.setProperty("webdriver.chrome.driver", "src/browsers/chromedriver (2).exe");
         driver = new ChromeDriver();
         getInputData();
@@ -52,20 +55,7 @@ public class TestBase {
         driver.findElement(By.id(elementPathById)).sendKeys(textToSend);
     }
 
-    protected void logIn(String loginId, String loginPassword) {
-        try {
-            String usernameLocator = "txtUsername";
-            String pwdLocator = "txtPassword";
-            String xPathOfPage = "//*[@id=\"welcome\"]";
-            sendKeysToField(loginId, usernameLocator);
-            sendKeysToField(loginPassword, pwdLocator);
-            driver.findElement(By.id("btnLogin")).click();
-            driver.findElement(By.xpath(xPathOfPage));
-        } catch (Exception e) {
-            System.out.println(GREEN_TEXT_COLOR + "Logging in failed.");
-            throw (e);
-        }
-    }
+
 
 //    protected void verifyCurrentURL(String xPathToVerifyPageOpened, String pageUnderTest) {
 //        try {
@@ -110,8 +100,8 @@ public class TestBase {
         }
     }
 
-    @AfterSuite
-    public void tearDown() {
+    @AfterSuite (alwaysRun = true)
+    public void tearDown()throws Exception {
         driver.quit();
     }
 }

@@ -3,11 +3,9 @@
 <suite name="Suite1" verbose="1" >
     <test name="EmployeePageActions" >
         <classes>
-            <class name="practice2021.EmployeeListPage">
-                    <methods>
-                            <include name="testMain"/>
-                    </methods>
-            </class>>
+            <class name="practice2021.Login"/>
+            <class name="practice2021.AddEmployee"/>
+            <class name="practice2021.DeleteEmployee"/>
         </classes>
     </test>
 </suite>
