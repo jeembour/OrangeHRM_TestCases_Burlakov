@@ -16,19 +16,6 @@ public class EmployeeListPageManager extends TestBase {
         }
     }
 
-//    public void verifyEmployeeExists() {
-//        findEmployee();
-//        try {
-//            String elementPath = "//td[text()=\"No Records Found\"]";
-//            driver.findElement(By.xpath(elementPath));
-//            System.out.println(empFirstName + " " + empLastName + " is not found in the Employee list.");
-//        } catch (Exception e) {
-//            System.out.println(empFirstName + " " + empLastName + " is found in the Employee list.");
-//        }
-//    }
-
-
-
     public static void waitForEmployeePageJSExecution() {
         try {
             WebDriverWait wait = new WebDriverWait(driver, 1);

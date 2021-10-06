@@ -11,14 +11,12 @@ public class Login extends TestBase {
     public void logIn() {
         String usernameLocator = "txtUsername";
         String pwdLocator = "txtPassword";
-        String pathToVerifyLoggedin = "//*[@id=\"welcome\"]";
+        String xPathToVerifyLoggedin = "//*[@id=\"welcome\"]";
         String pathToLoginBtn = "btnLogin";
         openPage(MAIN_PAGE, MAIN_PAGE_TEXT, X_PATH_OF_MAIN_PAGE);
         sendKeysToField(loginId, usernameLocator);
         sendKeysToField(loginPWD, pwdLocator);
         driver.findElement(By.id(pathToLoginBtn)).click();
-        WebElement element = driver.findElement(By.xpath(pathToVerifyLoggedin));
-        boolean isDisplayed = element.isDisplayed();
-        Assert.assertEquals(isDisplayed, true);
+        verification (xPathToVerifyLoggedin);
     }
 }

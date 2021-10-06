@@ -2,7 +2,9 @@ package practice2021;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
@@ -84,6 +86,11 @@ public class TestBase {
         } catch (IOException e) {
             System.out.println(e);
         }
+    }
+    public void verification(String xPathOfElementToBeVerified) {
+        WebElement element = driver.findElement(By.xpath(xPathOfElementToBeVerified));
+        boolean isDisplayed = element.isDisplayed();
+        Assert.assertEquals(isDisplayed, true);
     }
 
     @AfterSuite(alwaysRun = true)

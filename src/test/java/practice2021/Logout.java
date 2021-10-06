@@ -12,13 +12,11 @@ public class Logout extends TestBase {
     public void logout(){
         String pathToVerifyLoggedIn = "//a[@id=\"welcome\"]";
         String pathToLogout = "//a[text()=\"Logout\"]";
-        String pathToLoginBtn = "btnLogin";
+        String xPathToLoginBtn = "//input[@id=\"btnLogin\"]";
         driver.findElement(By.xpath(pathToVerifyLoggedIn)).click();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.findElement(By.xpath(pathToLogout)).click();
-        WebElement element = driver.findElement(By.id(pathToLoginBtn));
-        boolean isDisplayed = element.isDisplayed();
-        Assert.assertEquals(isDisplayed, true);
+        verification(xPathToLoginBtn);
     }
 
 }
