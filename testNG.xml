@@ -1,11 +1,13 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 <suite name="Suite1" verbose="1" >
-    <test name="EmployeePageActions" >
+    <test name="EmployeePageActions1" >
         <classes>
             <class name="practice2021.Login"/>
             <class name="practice2021.AddEmployee"/>
             <class name="practice2021.FindEmployee"/>
+            <class name="practice2021.EditEmployeeInfo"/>
             <class name="practice2021.DeleteEmployee"/>
+            <class name="practice2021.FindEmployee"/>
         </classes>
     </test>
 </suite>

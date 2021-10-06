@@ -19,7 +19,8 @@ public class TestBase {
     public static final String GREEN_TEXT_COLOR = (char) 27 + "[92m";
     public static final String EMPLOYEE_LIST_PAGE = "https://opensource-demo.orangehrmlive.com/index.php/pim/viewEmployeeList";
     public static final String CANDIDATE_PAGE = "https://opensource-demo.orangehrmlive.com/index.php/recruitment/viewCandidates";
-    public static final String xPathOfMainPage = "//*[@id=\"logInPanelHeading\"]";
+    public static final String X_PATH_OF_MAIN_PAGE = "//*[@id=\"logInPanelHeading\"]";
+    public static final String PATH_TO_PHOTO = "C:\\Users\\Jeemb\\IdeaProjects\\OrangeHRM_TestCases_Burlakov\\src\\data\\kotofey.jpg";
     public static String loginId = "Admin";
     public static String loginPWD = "admin123";
     public static String empFirstName;

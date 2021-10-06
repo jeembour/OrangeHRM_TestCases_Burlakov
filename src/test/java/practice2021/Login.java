@@ -8,7 +8,7 @@ public class Login extends TestBase {
     @Test (groups = {"checkintest"})
     public void logIn() {
         try {
-            openPage(MAIN_PAGE, MAIN_PAGE_TEXT, xPathOfMainPage);
+            openPage(MAIN_PAGE, MAIN_PAGE_TEXT, X_PATH_OF_MAIN_PAGE);
             String usernameLocator = "txtUsername";
             String pwdLocator = "txtPassword";
             String xPathOfPage = "//*[@id=\"welcome\"]";

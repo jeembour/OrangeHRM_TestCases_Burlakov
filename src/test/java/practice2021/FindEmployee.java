@@ -14,8 +14,7 @@ public class FindEmployee extends EmployeeListPageManager {
             driver.findElement(By.id("searchBtn")).click();
             System.out.println(empFirstName + " " + empLastName + " is found on the Employee page");
         } catch (Exception e) {
-            System.out.println(GREEN_TEXT_COLOR + "Failed to locate elements on the Employee page");
-            throw (e);
+            System.out.println(GREEN_TEXT_COLOR + "Failed to find employee " + empId + " " + empFirstName + " " + empLastName + " on the Employee page");
         }
     }
 }

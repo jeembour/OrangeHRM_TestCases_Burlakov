@@ -14,15 +14,6 @@ public class EmployeeListPageManager extends TestBase {
             System.out.println(GREEN_TEXT_COLOR + "The Employee list page is not found.");
             throw (e);
         }
-
-//        editEmployeeBloodType();
-//        editEmployeeMaritalStatus();
-//        editEmployeeNationality();
-//        editEmployeeGender();
-//        editEmployeeDoB();
-//        editEmployeePhoto();
-//
-//        logOut();
     }
 
 //    public void verifyEmployeeExists() {
