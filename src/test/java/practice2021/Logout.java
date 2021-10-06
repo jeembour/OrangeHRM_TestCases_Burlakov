@@ -10,10 +10,13 @@ import java.util.concurrent.TimeUnit;
 public class Logout extends TestBase {
     @Test
     public void logout(){
-        driver.findElement(By.xpath("//a[@id=\"welcome\"]")).click();
+        String pathToVerifyLoggedIn = "//a[@id=\"welcome\"]";
+        String pathToLogout = "//a[text()=\"Logout\"]";
+        String pathToLoginBtn = "btnLogin";
+        driver.findElement(By.xpath(pathToVerifyLoggedIn)).click();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.findElement(By.xpath("//a[text()=\"Logout\"]")).click();
-        WebElement element = driver.findElement(By.id("btnLogin"));
+        driver.findElement(By.xpath(pathToLogout)).click();
+        WebElement element = driver.findElement(By.id(pathToLoginBtn));
         boolean isDisplayed = element.isDisplayed();
         Assert.assertEquals(isDisplayed, true);
     }
