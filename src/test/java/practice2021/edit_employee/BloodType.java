@@ -1,10 +1,12 @@
-package practice2021;
+package practice2021.edit_employee;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
+import practice2021.EmpListPageManager;
+import practice2021.FindEmp;
 
-public class EditEmpBloodType extends EmpListPageManager {
+public class BloodType extends EmpListPageManager {
     @Test
     public void editEmployeeBloodType() {
         FindEmp.findEmployee();

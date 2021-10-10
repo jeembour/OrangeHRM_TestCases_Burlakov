@@ -1,10 +1,12 @@
-package practice2021;
+package practice2021.edit_employee;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
+import practice2021.EmpListPageManager;
+import practice2021.FindEmp;
 
 
-public class EditEmpDoB extends EmpListPageManager {
+public class DoB extends EmpListPageManager {
     @Test
     public void editEmployeeDoB() {
         String doB = "";

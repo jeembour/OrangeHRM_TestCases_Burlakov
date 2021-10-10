@@ -1,9 +1,11 @@
-package practice2021;
+package practice2021.edit_employee;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
+import practice2021.EmpListPageManager;
+import practice2021.FindEmp;
 
-public class EditEmpPhoto extends EmpListPageManager {
+public class Photo extends EmpListPageManager {
     @Test
     public void editEmployeePhoto() {
         FindEmp.findEmployee();
