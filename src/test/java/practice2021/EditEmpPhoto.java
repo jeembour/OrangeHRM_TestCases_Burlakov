@@ -11,6 +11,7 @@ public class EditEmpPhoto extends EmpListPageManager {
         driver.findElement(By.xpath("//img[@alt=\"Employee Photo\"]")).click();
         driver.findElement(By.xpath("//input[@id=\"photofile\"]")).sendKeys(PATH_TO_PHOTO);
         driver.findElement(By.id("btnSave")).click();
+        // TODO verify photo was excepted and updated successfully;
 //        try {
 //            actionSuccessful();
 //            System.out.println("Employee's photo is successfully updated.");

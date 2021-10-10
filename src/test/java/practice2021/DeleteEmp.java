@@ -7,6 +7,7 @@ public class DeleteEmp extends EmpListPageManager {
     @Test(groups = {"checkintest", "fuсktest"})
     public void deleteEmployee() {
         FindEmp.findEmployee();
+        //TODO Verify emp was not deleted earlier;
         driver.findElement(By.xpath("//a[text()=\"" + empId + "\"]/../../child::td/input")).click();    // path to checkbox
         driver.findElement(By.id("btnDelete")).click();
         driver.findElement(By.id("dialogDeleteBtn")).click();

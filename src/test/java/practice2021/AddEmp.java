@@ -9,6 +9,8 @@ public class AddEmp extends EmpListPageManager {
     public void addNewEmployee() {
         goToEmployeePage();
         waitForEmployeePageJSExecution();
+        //TODO Verify Employee was not added before;
+
         driver.findElement(By.id("btnAdd")).click();
         sendKeysToField(empFirstName, "firstName");
         sendKeysToField(empLastName, "lastName");
