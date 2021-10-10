@@ -2,7 +2,7 @@
 <testng-results skipped="0" failed="0" ignored="10" total="16" passed="6">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite1" duration-ms="22892" started-at="2021-10-10T16:09:14 MSK" finished-at="2021-10-10T16:09:37 MSK">
+  <suite name="Suite1" duration-ms="23628" started-at="2021-10-10T16:16:18 MSK" finished-at="2021-10-10T16:16:41 MSK">
     <groups>
       <group name="checkintest">
         <method signature="AddEmployee.addNewEmployee()[pri:0, instance:practice2021.AddEmployee@3b084709]" name="addNewEmployee" class="practice2021.AddEmployee"/>
@@ -16,47 +16,47 @@
         <method signature="FindEmployee.findEmployee()[pri:0, instance:practice2021.FindEmployee@3224f60b]" name="findEmployee" class="practice2021.FindEmployee"/>
       </group> <!-- funktest -->
     </groups>
-    <test name="EmployeePageActions1" duration-ms="22892" started-at="2021-10-10T16:09:14 MSK" finished-at="2021-10-10T16:09:37 MSK">
+    <test name="EmployeePageActions1" duration-ms="23628" started-at="2021-10-10T16:16:18 MSK" finished-at="2021-10-10T16:16:41 MSK">
       <class name="practice2021.Logout">
-        <test-method status="PASS" signature="logout()[pri:0, instance:practice2021.Logout@6737fd8f]" name="logout" duration-ms="1005" started-at="2021-10-10T16:09:36 MSK" finished-at="2021-10-10T16:09:37 MSK">
+        <test-method status="PASS" signature="logout()[pri:0, instance:practice2021.Logout@6737fd8f]" name="logout" duration-ms="997" started-at="2021-10-10T16:16:40 MSK" finished-at="2021-10-10T16:16:41 MSK">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logout -->
       </class> <!-- practice2021.Logout -->
       <class name="practice2021.AddEmployee">
-        <test-method status="PASS" signature="addNewEmployee()[pri:0, instance:practice2021.AddEmployee@3b084709]" name="addNewEmployee" duration-ms="4883" started-at="2021-10-10T16:09:20 MSK" finished-at="2021-10-10T16:09:25 MSK">
+        <test-method status="PASS" signature="addNewEmployee()[pri:0, instance:practice2021.AddEmployee@3b084709]" name="addNewEmployee" duration-ms="4535" started-at="2021-10-10T16:16:24 MSK" finished-at="2021-10-10T16:16:29 MSK">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addNewEmployee -->
       </class> <!-- practice2021.AddEmployee -->
       <class name="practice2021.DeleteEmployee">
-        <test-method status="PASS" signature="deleteEmployee()[pri:0, instance:practice2021.DeleteEmployee@1efed156]" name="deleteEmployee" duration-ms="2627" started-at="2021-10-10T16:09:33 MSK" finished-at="2021-10-10T16:09:36 MSK">
+        <test-method status="PASS" signature="deleteEmployee()[pri:0, instance:practice2021.DeleteEmployee@1efed156]" name="deleteEmployee" duration-ms="2690" started-at="2021-10-10T16:16:38 MSK" finished-at="2021-10-10T16:16:40 MSK">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- deleteEmployee -->
       </class> <!-- practice2021.DeleteEmployee -->
       <class name="practice2021.FindEmployee">
-        <test-method status="PASS" signature="findEmployee()[pri:0, instance:practice2021.FindEmployee@3224f60b]" name="findEmployee" duration-ms="1955" started-at="2021-10-10T16:09:25 MSK" finished-at="2021-10-10T16:09:27 MSK">
+        <test-method status="PASS" signature="findEmployee()[pri:0, instance:practice2021.FindEmployee@3224f60b]" name="findEmployee" duration-ms="1956" started-at="2021-10-10T16:16:29 MSK" finished-at="2021-10-10T16:16:31 MSK">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- findEmployee -->
       </class> <!-- practice2021.FindEmployee -->
       <class name="practice2021.EditEmployeeInfo">
-        <test-method status="PASS" signature="editEmployeeInfo()[pri:0, instance:practice2021.EditEmployeeInfo@63e2203c]" name="editEmployeeInfo" duration-ms="6647" started-at="2021-10-10T16:09:27 MSK" finished-at="2021-10-10T16:09:33 MSK">
+        <test-method status="PASS" signature="editEmployeeInfo()[pri:0, instance:practice2021.EditEmployeeInfo@63e2203c]" name="editEmployeeInfo" duration-ms="7110" started-at="2021-10-10T16:16:31 MSK" finished-at="2021-10-10T16:16:38 MSK">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- editEmployeeInfo -->
       </class> <!-- practice2021.EditEmployeeInfo -->
       <class name="practice2021.Login">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:practice2021.Login@cd2dae5]" name="setUp" is-config="true" duration-ms="1984" started-at="2021-10-10T16:09:12 MSK" finished-at="2021-10-10T16:09:14 MSK">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:practice2021.Login@cd2dae5]" name="setUp" is-config="true" duration-ms="2178" started-at="2021-10-10T16:16:16 MSK" finished-at="2021-10-10T16:16:18 MSK">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="logIn()[pri:0, instance:practice2021.Login@cd2dae5]" name="logIn" duration-ms="5733" started-at="2021-10-10T16:09:14 MSK" finished-at="2021-10-10T16:09:20 MSK">
+        <test-method status="PASS" signature="logIn()[pri:0, instance:practice2021.Login@cd2dae5]" name="logIn" duration-ms="6304" started-at="2021-10-10T16:16:18 MSK" finished-at="2021-10-10T16:16:24 MSK">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logIn -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:practice2021.Login@cd2dae5]" name="tearDown" is-config="true" duration-ms="626" started-at="2021-10-10T16:09:37 MSK" finished-at="2021-10-10T16:09:38 MSK">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:practice2021.Login@cd2dae5]" name="tearDown" is-config="true" duration-ms="613" started-at="2021-10-10T16:16:41 MSK" finished-at="2021-10-10T16:16:42 MSK">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

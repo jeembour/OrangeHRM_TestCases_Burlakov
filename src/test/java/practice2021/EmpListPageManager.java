@@ -4,8 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
-public class EmployeeListPageManager extends TestBase {
+public class EmpListPageManager extends TestBase {
     public static void goToEmployeePage() {
         try {
             driver.get(EMPLOYEE_LIST_PAGE);
@@ -22,5 +23,9 @@ public class EmployeeListPageManager extends TestBase {
             WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@class=\"ac_input inputFormatHint\"]")));
         } catch (Exception e) {
         }
+    }
+
+    protected void actionSuccessful() {
+        Assert.assertTrue(wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class=\"message success fadable\"]"))).isDisplayed());
     }
 }

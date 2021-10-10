@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
@@ -35,6 +36,7 @@ public class TestBase {
     public static String empBloodType;
     public static String dataFile = "src/data/Data";
     public static WebDriver driver;
+    public static WebDriverWait wait;
 
     @BeforeSuite(alwaysRun = true)
     public void setUp() throws Exception {
@@ -42,6 +44,7 @@ public class TestBase {
         driver = new ChromeDriver();
         getInputData();
         driver.manage().window().maximize();
+        wait = new WebDriverWait(driver, 6);
     }
 
     private static int getEmployeeNumber() {
@@ -70,7 +73,6 @@ public class TestBase {
 
     public void getInputData() {
         int n = getEmployeeNumber();
-        String line;
         try (BufferedReader br = new BufferedReader(new FileReader(dataFile))) {
             for (int i = 0; i < n; i++)
                 br.readLine();
