@@ -1,4 +1,4 @@
-package practice2021;
+package practice2021.employee;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;

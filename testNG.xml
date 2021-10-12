@@ -3,12 +3,12 @@
     <test name="EmployeePageActionsMain" >
         <classes>
             <class name="practice2021.Login"/>
-            <class name="practice2021.AddEmp"/>
+            <class name="practice2021.employee.AddEmp"/>
             <class name="practice2021.edit_employee.BloodType"/>
             <class name="practice2021.edit_employee.MaritalStatus"/>
             <class name="practice2021.edit_employee.Photo"/>
             <class name="practice2021.edit_employee.DoB"/>
-            <class name="practice2021.DeleteEmp"/>
+            <class name="practice2021.employee.DeleteEmp"/>
             <class name="practice2021.Logout"/>
         </classes>
     </test>

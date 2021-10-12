@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import practice2021.app_manager.ApplicationManager;
 import practice2021.app_manager.EmpListPageManager;
-import practice2021.FindEmp;
+import practice2021.employee.FindEmp;
 
 
 public class DoB extends EmpListPageManager {
