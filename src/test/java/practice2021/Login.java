@@ -1,9 +1,8 @@
 package practice2021;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.Test;
+import practice2021.app_manager.ApplicationManager;
 
 public class Login extends TestBase {
 
@@ -13,10 +12,10 @@ public class Login extends TestBase {
         String pwdLocator = "txtPassword";
         String xPathToVerifyLoggedin = "//*[@id=\"welcome\"]";
         String pathToLoginBtn = "btnLogin";
-        openPage(MAIN_PAGE, MAIN_PAGE_TEXT, X_PATH_OF_MAIN_PAGE);
-        sendKeysToField(loginId, usernameLocator);
-        sendKeysToField(loginPWD, pwdLocator);
-        driver.findElement(By.id(pathToLoginBtn)).click();
-        verification (xPathToVerifyLoggedin);
+        app.openPage(ApplicationManager.MAIN_PAGE, ApplicationManager.MAIN_PAGE_TEXT, ApplicationManager.X_PATH_OF_MAIN_PAGE);
+        ApplicationManager.sendKeysToField(ApplicationManager.loginId, usernameLocator);
+        ApplicationManager.sendKeysToField(ApplicationManager.loginPWD, pwdLocator);
+        ApplicationManager.driver.findElement(By.id(pathToLoginBtn)).click();
+        app.verification(xPathToVerifyLoggedin);
     }
 }

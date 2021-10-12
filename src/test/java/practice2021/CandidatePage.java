@@ -1,19 +1,20 @@
 package practice2021;
 
 import org.testng.annotations.Test;
+import practice2021.app_manager.ApplicationManager;
 
 public class CandidatePage extends TestBase {
     @Test
     public void candidatePageTests() {
         openCandidatePage();
-        getInputData();
+        app.getInputData();
 //        addCandidate();
 //        editCandidate();
 //        deleteCandidate();
     }
 
     private void openCandidatePage() {
-        driver.get(CANDIDATE_PAGE);
+        ApplicationManager.driver.get(ApplicationManager.CANDIDATE_PAGE);
     }
 
 }

@@ -2,17 +2,18 @@ package practice2021.edit_employee;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
-import practice2021.EmpListPageManager;
+import practice2021.app_manager.ApplicationManager;
+import practice2021.app_manager.EmpListPageManager;
 import practice2021.FindEmp;
 
 public class Photo extends EmpListPageManager {
     @Test
     public void editEmployeePhoto() {
         FindEmp.findEmployee();
-        driver.findElement(By.xpath("//a[text()=\"" + empId + "\"]")).click();
-        driver.findElement(By.xpath("//img[@alt=\"Employee Photo\"]")).click();
-        driver.findElement(By.xpath("//input[@id=\"photofile\"]")).sendKeys(PATH_TO_PHOTO);
-        driver.findElement(By.id("btnSave")).click();
+        ApplicationManager.driver.findElement(By.xpath("//a[text()=\"" + ApplicationManager.empId + "\"]")).click();
+        ApplicationManager.driver.findElement(By.xpath("//img[@alt=\"Employee Photo\"]")).click();
+        ApplicationManager.driver.findElement(By.xpath("//input[@id=\"photofile\"]")).sendKeys(ApplicationManager.PATH_TO_PHOTO);
+        ApplicationManager.driver.findElement(By.id("btnSave")).click();
         // TODO verify photo was excepted and updated successfully;
 //        try {
 //            actionSuccessful();

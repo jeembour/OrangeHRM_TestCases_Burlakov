@@ -1,9 +1,8 @@
 package practice2021;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.Test;
+import practice2021.app_manager.ApplicationManager;
 
 import java.util.concurrent.TimeUnit;
 
@@ -13,10 +12,10 @@ public class Logout extends TestBase {
         String pathToVerifyLoggedIn = "//a[@id=\"welcome\"]";
         String pathToLogout = "//a[text()=\"Logout\"]";
         String xPathToLoginBtn = "//input[@id=\"btnLogin\"]";
-        driver.findElement(By.xpath(pathToVerifyLoggedIn)).click();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.findElement(By.xpath(pathToLogout)).click();
-        verification(xPathToLoginBtn);
+        ApplicationManager.driver.findElement(By.xpath(pathToVerifyLoggedIn)).click();
+        ApplicationManager.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        ApplicationManager.driver.findElement(By.xpath(pathToLogout)).click();
+        app.verification(xPathToLoginBtn);
     }
 
 }
