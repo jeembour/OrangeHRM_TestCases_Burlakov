@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import practice2021.app_manager.ApplicationManager;
 
+import java.util.concurrent.TimeUnit;
+
 public class Login extends TestBase {
 
     @Test(groups = {"checkintest"})
@@ -16,6 +18,7 @@ public class Login extends TestBase {
         ApplicationManager.sendKeysToField(ApplicationManager.loginId, usernameLocator);
         ApplicationManager.sendKeysToField(ApplicationManager.loginPWD, pwdLocator);
         ApplicationManager.driver.findElement(By.id(pathToLoginBtn)).click();
+        ApplicationManager.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         app.verification(xPathToVerifyLoggedin);
     }
 }
