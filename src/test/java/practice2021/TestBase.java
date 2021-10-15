@@ -6,7 +6,7 @@ import practice2021.app_manager.ApplicationManager;
 
 public class TestBase {
 
-    protected final ApplicationManager app = new ApplicationManager();
+    protected static final ApplicationManager app = new ApplicationManager();
 
     @BeforeSuite (alwaysRun = true)
     public void setUp() throws Exception {

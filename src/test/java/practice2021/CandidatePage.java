@@ -1,7 +1,6 @@
 package practice2021;
 
 import org.testng.annotations.Test;
-import practice2021.app_manager.ApplicationManager;
 
 public class CandidatePage extends TestBase {
     @Test
@@ -14,7 +13,7 @@ public class CandidatePage extends TestBase {
     }
 
     private void openCandidatePage() {
-        ApplicationManager.driver.get(ApplicationManager.CANDIDATE_PAGE);
+        app.driver.get(app.CANDIDATE_PAGE);
     }
 
 }
